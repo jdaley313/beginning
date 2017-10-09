@@ -1,0 +1,21 @@
+from datetime import date
+from datetime import time
+from datetime import datetime
+from datetime import timedelta
+
+# print today's date
+print "today is: " + str(datetime.now())
+
+### How many days until Christmas?
+
+today = date.today()  # get today's date
+xmas = date(today.year, 12, 25)  # get Christmas for the same year
+# use date comparison to see if Christmas has already gone for this year
+# if it has, use the replace() function to get the date for next year
+if xmas < today:
+  print "Christmas already went by %d days ago" % ((today-xmas).days)
+  xmas = xmas.replace(year=today.year + 1)  # if so, get the date for next year
+
+# Now calculate the amount of time until Christmas  
+time_to_xmas = abs(xmas - today)
+print time_to_xmas.days, "days until Christmas!"
